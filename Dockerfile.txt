@@ -1,6 +1,7 @@
 # Step 1: Use an official OpenJDK base image from Docker Hub
-#FROM amazoncorretto:17
-FROM openjdk:17-jdk-alpine
+FROM amazoncorretto:17
+USER root
+#FROM openjdk:17-jdk-alpine
 
 # Step 2: Set the working directory inside the container
 WORKDIR /app
