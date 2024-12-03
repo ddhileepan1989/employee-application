@@ -22,7 +22,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'Docker1989#', usernameVariable: 'dhileepan.study@gmail.com')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh 'docker push dhileepan1989/mentorbridge:tagname'
+          sh 'docker push dhileepan1989/mentorbridge:latest'
         }
       }
     }
