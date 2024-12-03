@@ -14,7 +14,7 @@ pipeline {
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t dhileepan1989/mentorbridge:tagname .'
+        sh 'docker build -t employee-service-api:jenkins .'
       }
     }
     stage('Docker Push') {
@@ -22,7 +22,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'docker-id', usernameVariable: 'DockerUsername', passwordVariable: 'DockerPassword')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh 'docker push dhileepan1989/mentorbridge:latest'
+          sh 'docker push employee-service-api:jenkins'
         }
       }
     }
