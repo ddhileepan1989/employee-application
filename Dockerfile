@@ -1,6 +1,6 @@
 #FROM openjdk:17-jdk-alpine
 #FROM openjdk:8-jdk-alpine
-FROM openjdk:8
+FROM openjdk:17
 
 ADD target/employee-application.jar employee-application.jar
 
