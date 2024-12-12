@@ -23,26 +23,26 @@ pipeline {
             steps {
                 echo "Hello Java Express"
                 sh 'ls'
-                sh 'sudo docker build -t  dhileepan1989/mentorbridge:${BUILD_NUMBER} .'
+                sh 'docker build -t  dhileepan1989/mentorbridge:${BUILD_NUMBER} .'
             }
         }
         stage('Docker Login'){
             
             steps {
                  withCredentials([string(credentialsId: 'DockerId', variable: 'Dockerpwd')]) {
-                    sh "sudo docker login -u dhileepan1989 -p ${Dockerpwd}"
+                    sh "docker login -u dhileepan1989 -p ${Dockerpwd}"
                 }
             }                
         }
         stage('Docker Push'){
             steps {
-                sh 'sudo docker push dhileepan1989/mentorbridge:${BUILD_NUMBER}'
+                sh 'docker push dhileepan1989/mentorbridge:${BUILD_NUMBER}'
             }
         }
         stage('Docker deploy'){
             steps {
                
-                sh 'sudo docker run -itd -p  8082:8080 dhileepan1989/mentorbridge:${BUILD_NUMBER}'
+                sh 'docker run -itd -p  8082:8080 dhileepan1989/mentorbridge:${BUILD_NUMBER}'
             }
         }
         stage('Archving') { 
