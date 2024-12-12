@@ -4,6 +4,6 @@ FROM openjdk:17
 
 ADD target/employee-application.jar employee-application.jar
 
-EXPOSE 8080
+EXPOSE 8085
 
 ENTRYPOINT ["java","-jar","employee-application.jar"]
